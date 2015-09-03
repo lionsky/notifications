@@ -35,20 +35,24 @@
       }
       */
       
-//      navigator.serviceWorker.register('file://', {scope: '/'}).then(function(registration) {
-//        console.log('ServiceWorker registration successful with scope: ', registration.scope);
-//      }).catch(function(err) {
-//        console.log('ServiceWorker registration failed: ', err);
-//      });
-      
+      navigator.serviceWorker.register('sw.js', {scope: '/'}).then(function(registration) {
+        console.log('ServiceWorker registration successful with scope: ', registration.scope);
+        alert('registr success');
+      }).catch(function(err) {
+        console.log('ServiceWorker registration failed: ', err);
+        alert('registr fail');
+      });
+      /*
       Notification.requestPermission(function(status) {
                 alert('permission: '+status);
                 new Notification("Hallo");
       });
-//         navigator.serviceWorker.ready.then(function(serviceWorkerRegistration) {
-//           alert("ha");
-//   serviceWorkerRegistration.showNotification("bla","bla",null,"bla");
-//         });
+      */
+      
+         navigator.serviceWorker.ready.then(function(serviceWorkerRegistration) {
+           alert("ha");
+           serviceWorkerRegistration.showNotification("bla","bla",null,"bla");
+         });
 //      showNotification("bla");
      //ServiceWorkerRegistration.showNotification("bla").then(function(){ alert("hi"); });
     </script>
