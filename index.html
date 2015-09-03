@@ -40,7 +40,7 @@
         alert('registr success');
       }).catch(function(err) {
         console.log('ServiceWorker registration failed: ', err);
-        alert('registr fail');
+        alert('registr fail:'+err);
       });
       /*
       Notification.requestPermission(function(status) {
