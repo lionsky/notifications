@@ -42,12 +42,11 @@
         console.log('ServiceWorker registration failed: ', err);
         alert('registr fail:'+err);
       });
-      /*
+      
       Notification.requestPermission(function(status) {
                 alert('permission: '+status);
-                new Notification("Hallo");
       });
-      */
+      
       
          navigator.serviceWorker.ready.then(function(serviceWorkerRegistration) {
            alert("ha");
