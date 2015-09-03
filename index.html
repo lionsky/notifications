@@ -14,7 +14,7 @@
     <script type="text/javascript">
       var beat="";
       function hartbeat() {
-        beat=beat+".";
+        beat=beat+"+";
         if (beat==="....") beat="";
         document.getElementById("hartbeat").innerHTML = beat;
         setTimeout(hartbeat, 2000);
