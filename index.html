@@ -35,7 +35,7 @@
       }
       */
       
-      navigator.serviceWorker.register('sw.js', {scope: '/'}).then(function(registration) {
+      navigator.serviceWorker.register('sw.js').then(function(registration) {
         console.log('ServiceWorker registration successful with scope: ', registration.scope);
         alert('registr success');
       }).catch(function(err) {
