@@ -52,6 +52,12 @@
          navigator.serviceWorker.ready.then(function(serviceWorkerRegistration) {
            alert("ha");
            serviceWorkerRegistration.showNotification("bla");
+           self.addEventListener('notificationclick', function(event) {
+                 var url = event.notification.data.url;
+                 console.log('HA -- '+url);
+                 //alert('click:'+url);
+                //event.waitUntil(clients.openWindow(url));
+           });
          });
 //      showNotification("bla");
      //ServiceWorkerRegistration.showNotification("bla").then(function(){ alert("hi"); });
