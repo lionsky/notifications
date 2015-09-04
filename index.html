@@ -35,18 +35,27 @@
       }
       */
       
-      navigator.serviceWorker.register('sw.js').then(function(registration) {
-        console.log('ServiceWorker registration successful with scope: ', registration.scope);
-        alert('registr success');
-      }).catch(function(err) {
-        console.log('ServiceWorker registration failed: ', err);
-        alert('registr fail:'+err);
-      });
+      <button type="button" onclick="requestPermission()">req permission</button>
+      <button type="button" onclick="register()">register</button>
+      <button type="button" onclick="showNotification()">show persistent</button>
       
-      Notification.requestPermission(function(status) {
+      function requestPermission() {
+        Notification.requestPermission(function(status) {
                 alert('permission: '+status);
-      });
+        });
+      }
       
+      function register() {
+        navigator.serviceWorker.register('sw.js').then(function(registration) {
+          console.log('ServiceWorker registration successful with scope: ', registration.scope);
+          alert('registr success');
+        }).catch(function(err) {
+          console.log('ServiceWorker registration failed: ', err);
+          alert('registr fail:'+err);
+        });
+      }
+      
+      function showNotification() {
       
          navigator.serviceWorker.ready.then(function(serviceWorkerRegistration) {
            alert("ha");
@@ -64,6 +73,7 @@
          });
 //      showNotification("bla");
      //ServiceWorkerRegistration.showNotification("bla").then(function(){ alert("hi"); });
+      }
     </script>
 
   </body>
