@@ -10,6 +10,9 @@
         <td width="250px" id="hartbeat"></td>
       </tr>
     </table>
+      <button type="button" onclick="requestPermission()">req permission</button>
+      <button type="button" onclick="register()">register</button>
+      <button type="button" onclick="showNotification()">show persistent</button>
   
     <script type="text/javascript">
       var beat="";
@@ -34,11 +37,7 @@
         return;
       }
       */
-      
-      <button type="button" onclick="requestPermission()">req permission</button>
-      <button type="button" onclick="register()">register</button>
-      <button type="button" onclick="showNotification()">show persistent</button>
-      
+
       function requestPermission() {
         Notification.requestPermission(function(status) {
                 alert('permission: '+status);
