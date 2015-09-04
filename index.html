@@ -51,7 +51,8 @@
          navigator.serviceWorker.ready.then(function(serviceWorkerRegistration) {
            alert("ha");
            serviceWorkerRegistration.showNotification("bla");
-           serviceWorkerRegistration.showNotification("bla-2");
+           
+           /*
            navigator.serviceWorker.addEventListener('notificationclick', function(event) {
                  var url = event.notification.data.url;
                  console.log('HA -- '+url);
@@ -59,6 +60,7 @@
                  serviceWorkerRegistration.showNotification("bla-X");
                 //event.waitUntil(clients.openWindow(url));
            });
+           */
          });
 //      showNotification("bla");
      //ServiceWorkerRegistration.showNotification("bla").then(function(){ alert("hi"); });
