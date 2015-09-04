@@ -55,6 +55,7 @@
                  var url = event.notification.data.url;
                  console.log('HA -- '+url);
                  alert('click:'+url);
+                 serviceWorkerRegistration.showNotification("bla2");
                 //event.waitUntil(clients.openWindow(url));
            });
          });
