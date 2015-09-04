@@ -6,6 +6,6 @@ addEventListener('notificationclick', function(event) {
   console.log('HA -- '+data);
   //alert('click:'+data);
   //event.notification.close();
-  //event.waitUntil(clients.openWindow(url));
+  event.waitUntil(clients.openWindow('https://timvolodine.github.io/notifications/'));
 });
 
