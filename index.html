@@ -17,7 +17,7 @@
       <button type="button" onclick="requestPermission()">req permission</button>
       <button type="button" onclick="register()">register</button>
       <button type="button" onclick="showNotification()">show persistent</button>
-
+<p></p>
 <table id="logTable">
 </table>
   
@@ -47,8 +47,7 @@
 
       function requestPermission() {
         Notification.requestPermission(function(status) {
-                alert('permission: '+status);
-                logToHtml('permission: '+ status);
+          logToHtml('permission: '+ status);
         });
       }
       
@@ -62,32 +61,19 @@
       function register() {
         navigator.serviceWorker.register('sw.js').then(function(registration) {
           console.log('ServiceWorker registration successful with scope: ', registration.scope);
-          alert('registr success');
+          logToHtml('ServiceWorker registration success with scope ' + registration.scope);
         }).catch(function(err) {
           console.log('ServiceWorker registration failed: ', err);
-          alert('registr fail:'+err);
+          logToHtml('registration failed: ' + err);
         });
       }
       
       function showNotification() {
-      
          navigator.serviceWorker.ready.then(function(serviceWorkerRegistration) {
-           alert("ha");
            var title = document.getElementById("notificationtitle").value;
            serviceWorkerRegistration.showNotification(title);
-           
-           /*
-           navigator.serviceWorker.addEventListener('notificationclick', function(event) {
-                 var url = event.notification.data.url;
-                 console.log('HA -- '+url);
-                 alert('click:'+url);
-                 serviceWorkerRegistration.showNotification("bla-X");
-                //event.waitUntil(clients.openWindow(url));
-           });
-           */
+           logToHtml('showNotification title: ' + title);
          });
-//      showNotification("bla");
-     //ServiceWorkerRegistration.showNotification("bla").then(function(){ alert("hi"); });
       }
     </script>
 
