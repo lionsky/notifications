@@ -9,10 +9,17 @@
         <td>hartbeat:</td>
         <td width="250px" id="hartbeat"></td>
       </tr>
+      <tr>
+        <td>title:</td>
+        <td><input id="notificationtitle" type="text" value="Hello"></td>
+      </tr>
     </table>
       <button type="button" onclick="requestPermission()">req permission</button>
       <button type="button" onclick="register()">register</button>
       <button type="button" onclick="showNotification()">show persistent</button>
+
+<table id="logTable">
+</table>
   
     <script type="text/javascript">
       var beat="";
@@ -41,7 +48,15 @@
       function requestPermission() {
         Notification.requestPermission(function(status) {
                 alert('permission: '+status);
+                logToHtml('permission: '+ status);
         });
+      }
+      
+      function logToHtml(message) {
+          var table = document.getElementById("logTable");
+          var row = table.insertRow(-1);
+          var cell = row.insertCell();
+          cell.innerHTML = message;
       }
       
       function register() {
@@ -58,7 +73,8 @@
       
          navigator.serviceWorker.ready.then(function(serviceWorkerRegistration) {
            alert("ha");
-           serviceWorkerRegistration.showNotification("bla");
+           var title = document.getElementById("notificationtitle").value;
+           serviceWorkerRegistration.showNotification(title);
            
            /*
            navigator.serviceWorker.addEventListener('notificationclick', function(event) {
